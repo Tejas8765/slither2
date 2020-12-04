@@ -7,6 +7,7 @@
 // and it will restore whatever you had earlier
 
 void init_ui() {
+    setlocale(LC_ALL, ""); // overrides the default locale of ISO-8859-1
     initscr(); // initialize the ncurses mode
 }
 
@@ -14,8 +15,17 @@ void tear_down_ui() {
     endwin(); // exit the ncurses mode
 }
 
-void game() {
-    move(10, 10);
-    addstr("Hello, I'm in ncurses"); // add a string to the window
-    getch();
+void paint_border() {
+    for(int i = 0; i < COLS; i++) {
+        move(0, i); // move to the column i in top row
+        addstr("\u2588");
+        move(LINES - 1, i);
+        addstr("\u2588");
+    }
+    for(int i = 0; i < LINES; i++) {
+        move(i, 0); // move to the first col of this row
+        addstr("\u2588");
+        move(i, COLS - 1); // move to the first col of this row
+        addstr("\u2588");
+    }
 }
