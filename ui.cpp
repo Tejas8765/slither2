@@ -9,6 +9,11 @@
 void init_ui() {
     setlocale(LC_ALL, ""); // overrides the default locale of ISO-8859-1
     initscr(); // initialize the ncurses mode
+    nodelay(stdscr, TRUE); // make getch non-blocking call.
+    // by default, whatever you type gets printed out
+    noecho(); // turn off the echo behavior
+    curs_set(0); // make my cursor invisible
+    keypad(stdscr, TRUE); // enable reading of function, arrow, backspace, del .. keys
 }
 
 void tear_down_ui() {
