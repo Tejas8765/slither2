@@ -20,7 +20,8 @@ const int QUIT  = 'q';
 
 const int BEFORE_START = 0,
           STARTED = 1,
-          ENDED = 2;
+          ENDED = 2,
+          SNAKE_RESET = 3;
 
 const int INITIAL_LIVES = 5;
 const int FOOD_COUNT = 5;
