@@ -11,6 +11,31 @@ void init_snake() {
     body.push_back({10, 12});
 }
 
+
+void reset_snake() {
+    init_snake();
+}
+
+bool has_collision() {
+    // return true if the snake has had a collision
+    pair<int, int> head = body[0];
+    int x = head.first;
+    int y = head.second;
+    if(x == 0 or x == LINES - 1 or y == 0 or y == COLS - 1) {
+        // collision with a border
+        return true;
+    }
+    // collision with the snake itself
+    for(int i = 1; i < body.size(); i++) {
+        if(head == body[i]) {
+            // collision with some part of the body
+            return true;
+        }
+    }
+    // my snake is safe
+    return false;
+}
+
 void paint_snake() {
     for(int i = 0; i < body.size(); i++) {
         auto location = body[i];

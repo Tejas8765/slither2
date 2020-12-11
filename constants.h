@@ -11,6 +11,7 @@ const int UP    = 'w';
 const int LEFT  = 'a';
 const int DOWN  = 's';
 const int RIGHT = 'd';
+const int QUIT  = 'q';
 
 // const int UP    = 259;
 // const int LEFT  = 258;
@@ -18,7 +19,9 @@ const int RIGHT = 'd';
 // const int RIGHT = 261;
 
 const int BEFORE_START = 0,
-          STARTED = 1;
+          STARTED = 1,
+          ENDED = 2;
 
+const int INITIAL_LIVES = 5;
 const int FOOD_COUNT = 5;
 #endif

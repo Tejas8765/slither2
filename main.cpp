@@ -22,7 +22,10 @@ void event_loop() {
         last_time = current_time;
 
         erase();
-        execute_frame();
+        bool exit = execute_frame();
+        if(exit) {
+            break;
+        }
         refresh();
     }
 }
